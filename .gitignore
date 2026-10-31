@@ -1,0 +1,19 @@
+# RStudio temporary files
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# R temporary files
+.Renviron
+.Rprofile
+
+# Exploratory analysis
+code/Draft.R
+
+# Large input datasets
+data/
+
+# Operating system files
+.DS_Store
+Thumbs.db
