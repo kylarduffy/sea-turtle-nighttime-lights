@@ -10,9 +10,48 @@ This project compares two descriptive aspects of 2025 VIIRS nighttime radiance: 
 
 ## Data sources
 
-- **Queensland Government, QSpatial — Sea turtle nesting areas:** mapped coastline features and the `significan` field (`Present`, `Significant`, `Very significant`). Record the exact dataset URL, download date, version and reuse conditions before publication.
-- **Earth Observation Group — VIIRS annual nighttime lights, 2025:** `VNL_npp_2025_global_vcmslcfg_v2_c202604011200.average_masked.dat.tif` (annual average masked radiance). Record the dataset's official citation, licence and download URL before publication.
-- **Natural Earth:** medium-resolution Australian land boundary, accessed through the `rnaturalearth` R package for map backgrounds.
+### 1. Sea turtle nesting habitat
+
+- **Provider:** Queensland Government
+- **Dataset:** Sea turtle nesting areas
+- **Source:** [Queensland Government Open Data Portal](https://www.data.qld.gov.au/dataset/sea-turtle-nesting-areas/resource/575ba870-34fd-422a-a602-ae6519a6b6cb)
+- **Format:** ESRI Shapefile
+
+This dataset provides mapped sea turtle nesting coastline features along Queensland, classified as *Present*, *Significant* or *Very significant*.
+
+The original spatial data were cleaned to remove duplicate geometries and subsequently divided into approximately 1 km coastline segments for analysis.
+
+### 2. VIIRS nighttime lights
+
+- **Provider:** Earth Observation Group (EOG), Colorado School of Mines
+- **Dataset:** VIIRS Nighttime Day/Night Annual Band Composites, Version 2.2
+- **Year analysed:** 2025
+- **Band:** `average_masked`
+- **Spatial resolution:** Approximately 500 m
+- **Units:** nW/cm²/sr
+- **Product documentation:** [Google Earth Engine VIIRS Annual V2.2 Catalogue](https://developers.google.com/earth-engine/datasets/catalog/NOAA_VIIRS_DNB_ANNUAL_V22)
+
+The 2025 annual VIIRS radiance raster was used to estimate satellite-observed nighttime radiance surrounding mapped nesting coastlines. Negative raster values were set to zero before extracting mean radiance within coastline buffers.
+
+The Earth Engine catalogue provides documentation for the V2.2 product family; the 2025 raster used here was obtained separately.
+
+**Relevant publication:**
+
+Elvidge, C. D., Zhizhin, M., Ghosh, T., Hsu, F. C., & Taneja, J. (2021). Annual time series of global VIIRS nighttime lights derived from monthly averages: 2012 to 2019. *Remote Sensing, 13*(5), 922. https://doi.org/10.3390/rs13050922
+
+### 3. Basemap
+
+- **Provider:** Natural Earth
+- **Dataset:** Natural Earth country boundaries, medium resolution (1:50m)
+- **Website:** https://www.naturalearthdata.com/
+
+Australian land boundaries were obtained using the `rnaturalearth` R package to provide geographic context for the spatial figures.
+
+### Data availability
+
+The original input datasets are not included in this GitHub repository. To reproduce the analysis, users must obtain the datasets from their respective providers and place them in the directory structure described above.
+
+The cleaned analysis script, resulting figures and summary tables are provided in this repository.
 
 ## Methods
 
