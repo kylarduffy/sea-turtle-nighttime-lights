@@ -53,14 +53,14 @@ project-root/
 │   │       └── ... other shapefile components
 │   └── nighttime_lights/
 │       └── VNL_npp_2025_global_vcmslcfg_v2_c202604011200.average_masked.dat.tif
-├── scripts/
+├── code/
 │   └── clean_turtle_nighttime_lights.R
 ├── outputs/
 ├── README.md
 └── .gitignore
 ```
 
-Run `source("scripts/clean_turtle_nighttime_lights.R")` from the project root, or open the script in RStudio and run it from top to bottom. The script creates `outputs/` if necessary. The full-resolution raster may be large and extraction may take time.
+Run `source("code/clean_turtle_nighttime_lights.R")` from the project root, or open the script in RStudio and run it from top to bottom. The script creates `outputs/` if necessary. The full-resolution raster may be large and extraction may take time.
 
 **Important:** The input datasets are not bundled in this example repository structure. Obtain them from their original providers, check their licence terms, and place them at the paths shown. If your files have different names, update `nesting_path` and `viirs_path` near the top of the script.
 
